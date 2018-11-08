@@ -1,0 +1,28 @@
+{% extends 'base/base_user.html' %}
+
+{% load static %}
+
+
+
+{% block content %}
+    <div class="container">
+        <div class="form-group">
+            <label for="exampleInputUser">用户名</label>
+            <input type="text" class="form-control" id="u_id" name="u_name" placeholder="用户名">
+        </div>
+    </div>
+    <div class="container">
+        <div class="form-group">
+            <label for="exampleInputPassword">密码</label>
+            <input type="password" class="form-control" id="u_pwd" name="u_pwd" placeholder="密码">
+        </div>
+    </div>
+    <button class="btn btn-success btn-block" id="submit">登录</button>
+{% endblock %}
+
+
+
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'axf/user/js/login.js' %}"></script>
+{% endblock %}

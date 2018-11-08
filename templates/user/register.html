@@ -1,0 +1,47 @@
+{% extends 'base/base_user.html' %}
+
+{% load static %}
+
+
+
+{% block content %}
+    <div class="container">
+        <form id="myform" action="{% url 'axf:register' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputUser">用户名</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="uname_msg"></span>
+                <input type="text" class="form-control" id="u_id" name="u_name">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">密码</label>
+                <input type="password" class="form-control" id="u_pwd" name="u_pwd">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">确认密码</label>
+                <input type="password" class="form-control" id="u_confirm_pwd" name="u_confirm_pwd">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">邮箱</label>
+                <input type="email" class="form-control" id="u_email" name="u_email">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputFile">头像</label>
+                <input type="file" id="u_icon" name="u_icon">
+            </div>
+
+            <p class="help-block">{{ help_msg }}</p>
+
+            <button type="submit" class="btn btn-success btn-block">注册</button>
+        </form>
+    </div>
+{% endblock %}
+
+
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'axf/user/js/register.js' %}"></script>
+{% endblock %}
